@@ -14,13 +14,20 @@ function RequestData ({setShowRanking}) {
         setShowDataMenu(true)
     }
 
+    function hideOptions(){
+        setShowDataMenu(false)
+    }
+
     return(
         <>
             <p>F O R M U L A</p>
             <button onClick={getStats}> 2021 rankings </button>
             <button onClick={showOptions}> More data </button>
             {showDataMenu ? (
-                <DataMenu />
+                <>
+                    <DataMenu />
+                    <button onClick={hideOptions}> Close data </button>
+                </>
             ) : <></>}
         </>
     )
