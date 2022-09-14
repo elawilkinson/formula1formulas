@@ -1,3 +1,5 @@
+import TeamCard from "../TeamCard/teamcard.js";
+
 function StatsDisplay ({listings, setShowRanking}) {
     
     function closeListings () {
@@ -7,9 +9,9 @@ function StatsDisplay ({listings, setShowRanking}) {
     return(
         <>
             <div>
-                {listings.map((index, listing) => {
+                {listings.map((listing, index) => {
                     return(
-                    <p key={index} listing={listing}>{index}</p>
+                    <TeamCard key={index} listing={listing} />
                     )
                 })}
             </div>
@@ -20,10 +22,3 @@ function StatsDisplay ({listings, setShowRanking}) {
 
 export default StatsDisplay
 
-/*
-              <div className="card-gallery">
-                    {jobList.map((job, index) => {
-                        return <ApplicationCard job={job} key={index}/>               
-                    })}
-                </div>
-*/
