@@ -5,7 +5,7 @@ const url = 'https://api-formula-1.p.rapidapi.com/teams/';
 const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '9781f51be0msh5e4ddbb85b9e4dcp11e150jsn80ef1590e564',
+    'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
     'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
   }
 };
