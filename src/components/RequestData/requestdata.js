@@ -1,10 +1,9 @@
 
 
-function RequestData ({listings, setShowRanking}) {
+function RequestData ({setShowRanking}) {
 
     function getStats(){
         setShowRanking(true)
-        console.log(listings)
     }
 
     return(
