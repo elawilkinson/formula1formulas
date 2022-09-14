@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <RequestData listings={listings} setShowRanking={setShowRanking}/>
       {showRanking ? (
-        <StatsDisplay />
+        <StatsDisplay listings={listings} setShowRanking={setShowRanking}/>
       ) : <></>}
     </div>
   );
