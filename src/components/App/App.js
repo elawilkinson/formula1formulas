@@ -1,26 +1,30 @@
+import React, {useState} from "react";
+
 import './App.css';
+import { rankings } from "../../libs/rankings2021.js";
+import RequestData from '../RequestData/requestdata.js';
+import StatsDisplay from "../StatsDisplay/statsdisplay.js";
 
-const url = 'https://api-formula-1.p.rapidapi.com/teams/';
-
-const options = {
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
-    'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
-  }
-};
-
-fetch(url, options)
-	.then(res => res.json())
-	.then(json => console.log(json))
-	.catch(err => console.error('error:' + err));
 
 function App() {
+
+  const [showRanking, setShowRanking] = useState(false)
+
+  let listings = []
+  let teamPos = "";
+  for(let i=0; i<rankings.length; i++){
+      teamPos = `#${rankings[i].position} : ${rankings[i].team.name}`
+      listings.push(teamPos)
+  }
+
 
   
   return (
     <div className="App">
-      <p>Testing123</p>
+      <RequestData listings={listings} setShowRanking={setShowRanking}/>
+      {showRanking ? (
+        <StatsDisplay />
+      ) : <></>}
     </div>
   );
 }

@@ -1,11 +1,4 @@
-{
-    "get": "rankings",
-    "parameters": {
-        "season": "2021"
-    },
-    "errors": [],
-    "results": 10,
-    "response": [
+export const rankings = [
         {
             "position": 1,
             "team": {
@@ -107,4 +100,3 @@
             "season": 2021
         }
     ]
-}
