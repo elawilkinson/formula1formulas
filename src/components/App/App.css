@@ -62,3 +62,14 @@
   margin-top: 5%;
 }
 
+.button-align-left{
+  display: flex;
+  justify-content: left;
+  width: 45vw;
+  margin-top: 5%;
+}
+
+.chart-container{
+  width: 50vw;
+  margin-left: -10%;
+}

@@ -27,24 +27,32 @@ ChartJS.register(
       },
       title: {
         display: true,
-        text: 'Pole positions by constructor',
+        text: 'Mercedes vs Red Bull wins',
       },
     },
   };
 
-function Chart ({polePositionNumbers, constructorList}) {
-  const labels = constructorList;
-  const data = {
+  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  const dummyArray1 = [1, 4, 9, 16, 4, 11, 6, 0, 9, 1, 6, 12]
+  const dummyArray2 = [5, 4, 2, 6, 10, 11, 12, 2, 5, 4, 3, 10]
+
+  export const data = {
     labels,
     datasets: [
       {
-        label: 'Pole positions',
-        data: polePositionNumbers,
+        label: 'Red Bull',
+        data: dummyArray1,
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      }
+      },
+      {
+        label: 'Mercedes',
+        data: dummyArray2,
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      },
     ],
   };
 
+function Chart () {
     return(
         <div>
             <Bar options={options} data={data} />

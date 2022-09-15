@@ -1,48 +1,51 @@
+import {useState} from "react";
+
 import "../App/App.css"
 
 import DriverCard from "../DriverCard/drivercard.js";
 import TeamCard from "../TeamCard/teamcard.js";
 import CloseButton from "../CloseButton/closebutton.js";
-import Chart from "../Chart/chart.js";
+import LogicButtons from "../logic/logicbuttons.js";
 
 function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, showDriver, showMoreData}) {
     
     
     return(
-        <>
-            <CloseButton setShowRanking={setShowRanking} />
+        <>           
 
             {showCons ? (
 
                 <div>
+                    <CloseButton setShowRanking={setShowRanking} />
                     <h2>Constructor's championship</h2>
                 {teamListings.map((listing, index) => {
                     return(
                     <TeamCard key={index} listing={listing} />
                     )
                 })}
+                    <CloseButton setShowRanking={setShowRanking} />
             </div>
             ) : <> </> }
             
             {showDriver ? (
             <div>
+                <CloseButton setShowRanking={setShowRanking} />
                 <h2>Driver's championship</h2>
                 {driverListings.map((listing, index) => {
                     return(
                     <DriverCard key={index} listing={listing} />
                     )
                 })}
+                <CloseButton setShowRanking={setShowRanking} />
             </div>
             ) : <> </> }
 
             {showMoreData ? (
             <div>
-                <Chart />
+                <LogicButtons />
+                <CloseButton setShowRanking={setShowRanking} />
             </div>
             ) : <> </> }
-
-
-            <CloseButton setShowRanking={setShowRanking} />
         </>
     )
 }
