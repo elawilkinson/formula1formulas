@@ -9,10 +9,13 @@ function CloseButton ({setShowRanking}) {
 
     return(
         <div className="button-align-right">
-                <AwesomeButton 
+                <AwesomeButton
+                    className="close-data-button" 
                     type="secondary" 
                     onPress={closeListings}>
+                    <span className="data-buttons">
                     Close stats
+                    </span>                   
                 </AwesomeButton>
             </div>
     )

@@ -63,5 +63,13 @@ The following components make use of third-party libraries:
 
 -----
 
+### Next iterations
+Here are further areas of development for possible future iterations of F1F:
+- Comparing driver stats
+- Comparing team stats
+- Analysis of team performance by circuit, drivers and other factors
+
+-----
+
 ### Notes & comments
 - Please do get in touch with me (GitHub - @elawilkinson) for any further information, or feedback!

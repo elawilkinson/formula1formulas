@@ -8,11 +8,13 @@ function CloseChartButton ({setShowChart}) {
     }
 
     return(
-        <div className="button-align-right">
+        <div className="exit-chart-button">
                 <AwesomeButton 
                     type="secondary" 
                     onPress={closeListings}>
-                    Close chart
+                    <span className="data-buttons">
+                        x
+                    </span>                    
                 </AwesomeButton>
             </div>
     )

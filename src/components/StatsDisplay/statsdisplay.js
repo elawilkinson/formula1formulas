@@ -7,7 +7,6 @@ import LogicButtons from "../logic/logicbuttons.js";
 
 function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, showDriver, showMoreData}) {
     
-    
     return(
         <>           
             {showCons ? (
