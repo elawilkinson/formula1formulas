@@ -13,6 +13,7 @@ function StaticRequestData () {
     const [showDriver, setShowDriver] = useState(false);
     const [teamListings, setTeamListings] = useState([]);
     const [driverListings, setDriverListings] = useState([]);
+    const [showMoreData, setShowMoreData] = useState(false)
 
   useEffect(() => {
       setTeamListings(teams)
@@ -24,16 +25,21 @@ function StaticRequestData () {
         setShowRanking(true)
         setShowCons(true)
         setShowDriver(false)
+        setShowMoreData(false)
     }
 
     function getDriverStats(){
       setShowRanking(true)
       setShowCons(false)
       setShowDriver(true)
+      setShowMoreData(false)
   }
 
     function showOptions(){
-        console.log('options')
+      setShowMoreData(true)
+      setShowRanking(true)
+      setShowCons(false)
+      setShowDriver(false)
     }
 
     return(
@@ -50,6 +56,7 @@ function StaticRequestData () {
                   driverListings={driverListings}
                   showCons={showCons}
                   showDriver={showDriver} 
+                  showMoreData={showMoreData}
                   setShowRanking={setShowRanking}/>
               </div>
             ) : <></>}

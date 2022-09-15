@@ -25,4 +25,10 @@ Components:
 - Deeper data dive section
     ¬ start with one chart
 - Testing
-- Navbar
+- Navbar or footer?
+- Separate out components
+- Responsiveness
+
+## Additional ideas
+- Allow viewing of constructor & driver data by year
+- Animation on front page

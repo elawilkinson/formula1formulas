@@ -9,6 +9,7 @@ function RequestData () {
     const [showRanking, setShowRanking] = useState(false);
     const [showCons, setShowCons] = useState(false);
     const [showDriver, setShowDriver] = useState(false);
+    const [showMoreData, setShowMoreData] = useState(false)
     const [teamListings, setTeamListings] = useState([]);
     const [driverListings, setDriverListings] = useState([]);
     const constructorsUrl = 'https://api-formula-1.p.rapidapi.com/rankings/teams?season=2021';
@@ -48,7 +49,7 @@ function RequestData () {
   }
 
     function showOptions(){
-        console.log('options')
+        setShowMoreData(true)
     }
 
     return(
@@ -65,6 +66,7 @@ function RequestData () {
                   driverListings={driverListings}
                   showCons={showCons}
                   showDriver={showDriver} 
+                  showMoreData={showMoreData}
                   setShowRanking={setShowRanking}/>
               </div>
             ) : <></>}
