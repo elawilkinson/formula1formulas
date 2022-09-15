@@ -51,7 +51,7 @@ function RequestData () {
 
     return(
         <>
-            <p>F O R M U L A</p>
+            <h1><span id="app-title-span">formula</span> F O R M U L A S</h1>
             <button onClick={getConsStats}> 2021 | Constructor rankings </button>
             <button onClick={getDriverStats}> 2021 | Driver rankings </button>
             <button onClick={showOptions}> More data </button>
