@@ -13,7 +13,7 @@ function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, 
             {showCons ? (
                 <div>
                     <CloseButton setShowRanking={setShowRanking} />
-                    <h2>Constructor's championship</h2>
+                    <h2>Constructors' championship</h2>
                 {teamListings.map((listing, index) => {
                     return(
                     <TeamCard key={index} listing={listing} />
@@ -26,7 +26,7 @@ function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, 
             {showDriver ? (
             <div>
                 <CloseButton setShowRanking={setShowRanking} />
-                <h2>Driver's championship</h2>
+                <h2>Drivers' championship</h2>
                 {driverListings.map((listing, index) => {
                     return(
                     <DriverCard key={index} listing={listing} />
