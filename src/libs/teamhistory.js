@@ -1,9 +1,4 @@
-{
-    "get": "teams",
-    "parameters": [],
-    "errors": [],
-    "results": 18,
-    "response": [
+export const teamhistory = [
         {
             "id": 1,
             "name": "Red Bull Racing",
@@ -365,4 +360,3 @@
             "tyres": "Pirelli"
         }
     ]
-}

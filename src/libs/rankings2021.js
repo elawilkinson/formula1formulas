@@ -1,4 +1,4 @@
-export const rankings = [
+export const teams = [
         {
             "position": 1,
             "team": {
