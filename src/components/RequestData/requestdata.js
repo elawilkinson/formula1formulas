@@ -1,33 +1,67 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
-import DataMenu from '../DataMenu/datamenu.js'
+import StatsDisplay from "../StatsDisplay/statsdisplay.js";
 
-function RequestData ({setShowRanking}) {
+function RequestData () {
 
-    const[showDataMenu, setShowDataMenu] = useState(false)
+    const [showRanking, setShowRanking] = useState(false);
+    const [showCons, setShowCons] = useState(false);
+    const [showDriver, setShowDriver] = useState(false);
+    const [teamListings, setTeamListings] = useState([]);
+    const [driverListings, setDriverListings] = useState([]);
+    const constructorsUrl = 'https://api-formula-1.p.rapidapi.com/rankings/teams?season=2021';
+    const driversUrl = 'https://api-formula-1.p.rapidapi.com/rankings/drivers?season=2021';
 
-    function getStats(){
-        setShowRanking(true)
+  const getListings = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+      'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
     }
+  };
+
+  useEffect(() => {
+    fetch(constructorsUrl, getListings)
+      .then(res => res.json())
+      .then(json => setTeamListings(json.response))
+      .catch(err => console.error('error:' + err));
+
+      fetch(driversUrl, getListings)
+      .then(res => res.json())
+      .then(json => setDriverListings(json.response))
+      .catch(err => console.error('error:' + err));
+  
+  }, [])
+
+    function getConsStats(){
+        setShowRanking(true)
+        setShowCons(true)
+        setShowDriver(false)
+    }
+
+    function getDriverStats(){
+      setShowRanking(true)
+      setShowCons(false)
+      setShowDriver(true)
+  }
 
     function showOptions(){
-        setShowDataMenu(true)
-    }
-
-    function hideOptions(){
-        setShowDataMenu(false)
+        console.log('options')
     }
 
     return(
         <>
             <p>F O R M U L A</p>
-            <button onClick={getStats}> 2021 rankings </button>
+            <button onClick={getConsStats}> 2021 | Constructor rankings </button>
+            <button onClick={getDriverStats}> 2021 | Driver rankings </button>
             <button onClick={showOptions}> More data </button>
-            {showDataMenu ? (
-                <>
-                    <DataMenu />
-                    <button onClick={hideOptions}> Close data </button>
-                </>
+            {showRanking ? (
+                <StatsDisplay 
+                  teamListings={teamListings} 
+                  driverListings={driverListings}
+                  showCons={showCons}
+                  showDriver={showDriver} 
+                  setShowRanking={setShowRanking}/>
             ) : <></>}
         </>
     )
