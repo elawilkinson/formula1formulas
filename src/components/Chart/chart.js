@@ -21,6 +21,7 @@ ChartJS.register(
 
   export const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'top'
@@ -38,7 +39,7 @@ function Chart ({polePositionNumbers, constructorList}) {
     labels,
     datasets: [
       {
-        label: 'Pole positions',
+        label: 'Pole positions (all time)',
         data: polePositionNumbers,
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       }
@@ -46,8 +47,11 @@ function Chart ({polePositionNumbers, constructorList}) {
   };
 
     return(
-        <div>
-            <Bar options={options} data={data} />
+        <div className='data-chart'>
+             <Bar className='data-graphics' 
+                  height={100}
+                options={options} 
+                data={data} />
         </div>
     )
 }

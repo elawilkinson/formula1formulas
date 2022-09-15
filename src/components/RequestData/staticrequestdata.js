@@ -45,9 +45,9 @@ function StaticRequestData () {
     return(
         <>
             <div id="home-buttons-container">            
-              <AwesomeButton type="anchor" onPress={getConsStats}> 2021 | Constructor rankings </AwesomeButton>
-              <AwesomeButton type="anchor" onPress={getDriverStats}> 2021 | Driver rankings </AwesomeButton>
-              <AwesomeButton type="anchor" onPress={showOptions}> Data dives </AwesomeButton>
+              <AwesomeButton type="anchor" onPress={getConsStats}> <span className="data-buttons" >2021 | Constructor rankings </span> </AwesomeButton>
+              <AwesomeButton type="anchor" onPress={getDriverStats}> <span className="data-buttons" > 2021 | Driver rankings </span> </AwesomeButton>
+              <AwesomeButton type="anchor" onPress={showOptions}> <span className="data-buttons" >Data dives</span> </AwesomeButton>
             </div>
             {showRanking ? (
               <div id="stats-display-area">
