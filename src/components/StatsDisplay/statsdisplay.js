@@ -3,8 +3,10 @@ import "../App/App.css"
 import DriverCard from "../DriverCard/drivercard.js";
 import TeamCard from "../TeamCard/teamcard.js";
 import CloseButton from "../CloseButton/closebutton.js";
+import Chart from "../Chart/chart.js";
 
-function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, showDriver}) {
+function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, showDriver, showMoreData}) {
+    
     
     return(
         <>
@@ -32,6 +34,14 @@ function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, 
                 })}
             </div>
             ) : <> </> }
+
+            {showMoreData ? (
+            <div>
+                <Chart />
+            </div>
+            ) : <> </> }
+
+
             <CloseButton setShowRanking={setShowRanking} />
         </>
     )
