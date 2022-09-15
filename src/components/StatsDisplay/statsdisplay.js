@@ -1,5 +1,3 @@
-import {useState} from "react";
-
 import "../App/App.css"
 
 import DriverCard from "../DriverCard/drivercard.js";
@@ -12,9 +10,7 @@ function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, 
     
     return(
         <>           
-
             {showCons ? (
-
                 <div>
                     <CloseButton setShowRanking={setShowRanking} />
                     <h2>Constructor's championship</h2>
