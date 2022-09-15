@@ -1,3 +1,6 @@
+import { AwesomeButton } from "react-awesome-button";
+import "react-awesome-button/dist/styles.css";
+
 import DriverCard from "../DriverCard/drivercard.js";
 import TeamCard from "../TeamCard/teamcard.js";
 
@@ -30,7 +33,11 @@ function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, 
             </div>
             ) : <> </> }
 
-            <button onClick={closeListings}>Close stats</button>
+                <AwesomeButton 
+                    type="secondary" 
+                    onPress={closeListings}>
+                    Close stats
+                </AwesomeButton>
         </>
     )
 }

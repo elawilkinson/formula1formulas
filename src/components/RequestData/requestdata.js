@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import { AwesomeButton } from "react-awesome-button";
+import "react-awesome-button/dist/styles.css";
 
 import StatsDisplay from "../StatsDisplay/statsdisplay.js";
 
@@ -51,17 +53,20 @@ function RequestData () {
 
     return(
         <>
-            <h1><span id="app-title-span">formula</span> F O R M U L A S</h1>
-            <button onClick={getConsStats}> 2021 | Constructor rankings </button>
-            <button onClick={getDriverStats}> 2021 | Driver rankings </button>
-            <button onClick={showOptions}> More data </button>
+            <div id="home-buttons-container">            
+              <AwesomeButton type="anchor" onPress={getConsStats}> 2021 | Constructor rankings </AwesomeButton>
+              <AwesomeButton type="anchor" onPress={getDriverStats}> 2021 | Driver rankings </AwesomeButton>
+              <AwesomeButton type="anchor" onPress={showOptions}> Data dives </AwesomeButton>
+            </div>
             {showRanking ? (
+              <div id="stats-display-area">
                 <StatsDisplay 
                   teamListings={teamListings} 
                   driverListings={driverListings}
                   showCons={showCons}
                   showDriver={showDriver} 
                   setShowRanking={setShowRanking}/>
+              </div>
             ) : <></>}
         </>
     )
