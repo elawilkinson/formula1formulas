@@ -7,8 +7,6 @@ function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, 
         setShowRanking(false);
     }
 
-    console.log(driverListings)
-
     return(
         <>
             {showCons ? (
@@ -31,7 +29,7 @@ function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, 
                 })}
             </div>
             ) : <> </> }
-            
+
             <button onClick={closeListings}>Close stats</button>
         </>
     )
