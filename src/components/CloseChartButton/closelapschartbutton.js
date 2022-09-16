@@ -1,10 +1,10 @@
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 
-function CloseChartButton ({setPolePositions}) {
+function CloseLapsChartButton ({setRaceData}) {
 
     function closeListings () {
-        setPolePositions(false);
+        setRaceData(false);
     }
 
     return(
@@ -20,4 +20,4 @@ function CloseChartButton ({setPolePositions}) {
     )
 }
 
-export default CloseChartButton
+export default CloseLapsChartButton

@@ -1,21 +1,27 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 import { teamhistory } from "../../libs/teamhistory.js";
-import { racesOnly } from "../../libs/racesonly2021.js";
+import { getFastestLaps } from './datawork.js';
 
 import Chart from "../Chart/chart.js";
+import FastestLapChart from '../Chart/fastestlapchart.js';
 import DataSetButton from '../DatasetButton/datasetbutton.js';
 import CloseChartButton from '../CloseChartButton/closebutton.js';
+import CloseLapsChartButton from '../CloseChartButton/closelapschartbutton.js';
 
 
 function LogicButtons(){  
-    const [showChart, setShowChart] = useState(false);
     const [polePositions, setPolePositions] = useState(false);
     const [raceData, setRaceData] = useState(false);
-    const [polePositionNumbers, setPolePositionNumbers] = useState([])
-    const [constructorList, setConstructorList] = useState([])
-    let polePos = []
-    let constructors = []  
+    const [fastestLaps, setFastestLaps] = useState([])
+    const [polePositionNumbers, setPolePositionNumbers] = useState([]);
+    const [constructorList, setConstructorList] = useState([]);
+    let polePos = [];
+    let constructors = [];
+
+    useEffect ( () => {        
+        setFastestLaps(getFastestLaps())
+    }, [])
 
     function getPolePositions(){  
         for(let i=0; i<teamhistory.length; i++){
@@ -27,7 +33,6 @@ function LogicButtons(){
                 polePos.push(teamhistory[i].pole_positions)
             }    
         }
-        setShowChart(true)
         setPolePositionNumbers(polePos)
         setConstructorList(constructors)
         setPolePositions(true)
@@ -35,23 +40,31 @@ function LogicButtons(){
 
     function getRaceData(){
         setRaceData(true)
-        console.log(racesOnly)
     }
 
+    console.log(fastestLaps)
 
     return(
         <>
-            <DataSetButton dataName={"Pole positions"} getPolePositions={getPolePositions} polePositions={polePositions}/>
-            {showChart ? (
+            <DataSetButton dataName={"Pole positions"} getPolePositions={getPolePositions} />
+            {polePositions ? (
                 <div className="chart-container">
                     <Chart 
                         polePositionNumbers={polePositionNumbers}
                         constructorList={constructorList}
                         />
-                    <CloseChartButton setShowChart={setShowChart}/>
+                    <CloseChartButton setPolePositions={setPolePositions}/>
                 </div>
             ) : <></>}
-            <DataSetButton dataName={"Race data"} getRaceData={getRaceData} raceData={raceData}/>
+            <DataSetButton dataName={"Race data"} getRaceData={getRaceData} />
+            {raceData ? (
+                <div className="chart-container">
+                    <FastestLapChart 
+                        fastestLaps={fastestLaps}
+                        />
+                    <CloseLapsChartButton setRaceData={setRaceData}/>
+                </div>
+            ) : <></>}
         </>
     )
 }

@@ -52,7 +52,7 @@ ChartJS.register(
     ],
   };
 
-function Chart () {
+function FastestLapChart ({fastestLaps}) {
     return(
         <div>
             <Bar options={options} data={data} />
@@ -60,4 +60,4 @@ function Chart () {
     )
 }
 
-export default Chart
+export default FastestLapChart
