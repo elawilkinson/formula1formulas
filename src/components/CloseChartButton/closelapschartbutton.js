@@ -12,7 +12,7 @@ function CloseLapsChartButton ({setRaceData}) {
                 <AwesomeButton 
                     type="secondary" 
                     onPress={closeListings}>
-                    <span className="data-buttons">
+                    <span className="data-buttons-bl">
                         x
                     </span>                    
                 </AwesomeButton>
