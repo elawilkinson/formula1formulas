@@ -22,12 +22,15 @@ Components:
 
 ## To-do list
 - Documentation
+- Responsiveness
 - Deeper data dive section
     ¬ start with one chart
+///////////////
+    ¬ create two more when comfortable
 - Testing
 - Navbar or footer?
 - Separate out components
-- Responsiveness
+
 
 ## Additional ideas
 - Allow viewing of constructor & driver data by year

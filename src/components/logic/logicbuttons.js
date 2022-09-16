@@ -1,6 +1,7 @@
 import {useState} from 'react'
 
 import { teamhistory } from "../../libs/teamhistory.js";
+import { racesOnly } from "../../libs/racesonly2021.js";
 
 import Chart from "../Chart/chart.js";
 import DataSetButton from '../DatasetButton/datasetbutton.js';
@@ -9,6 +10,8 @@ import CloseChartButton from '../CloseChartButton/closebutton.js';
 
 function LogicButtons(){  
     const [showChart, setShowChart] = useState(false);
+    const [polePositions, setPolePositions] = useState(false);
+    const [raceData, setRaceData] = useState(false);
     const [polePositionNumbers, setPolePositionNumbers] = useState([])
     const [constructorList, setConstructorList] = useState([])
     let polePos = []
@@ -27,12 +30,18 @@ function LogicButtons(){
         setShowChart(true)
         setPolePositionNumbers(polePos)
         setConstructorList(constructors)
+        setPolePositions(true)
+    }
+
+    function getRaceData(){
+        setRaceData(true)
+        console.log(racesOnly)
     }
 
 
     return(
         <>
-            <DataSetButton getPolePositions={getPolePositions}/>
+            <DataSetButton dataName={"Pole positions"} getPolePositions={getPolePositions} polePositions={polePositions}/>
             {showChart ? (
                 <div className="chart-container">
                     <Chart 
@@ -42,6 +51,7 @@ function LogicButtons(){
                     <CloseChartButton setShowChart={setShowChart}/>
                 </div>
             ) : <></>}
+            <DataSetButton dataName={"Race data"} getRaceData={getRaceData} raceData={raceData}/>
         </>
     )
 }
