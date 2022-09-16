@@ -46,7 +46,11 @@ function LogicButtons(){
 
     return(
         <>
-            <DataSetButton dataName={"Pole positions"} getPolePositions={getPolePositions} />
+            <div className="data-dive-buttons">
+                <DataSetButton dataName={"Pole positions"} getPolePositions={getPolePositions} />
+                <DataSetButton dataName={"Race data"} getRaceData={getRaceData} />
+                <DataSetButton dataName={"Merc v Red Bull"} getRaceData={getRaceData} />
+            </div>
             {polePositions ? (
                 <div className="chart-container">
                     <Chart 
@@ -56,7 +60,7 @@ function LogicButtons(){
                     <CloseChartButton setPolePositions={setPolePositions}/>
                 </div>
             ) : <></>}
-            <DataSetButton dataName={"Race data"} getRaceData={getRaceData} />
+            
             {raceData ? (
                 <div className="chart-container">
                     <FastestLapChart 

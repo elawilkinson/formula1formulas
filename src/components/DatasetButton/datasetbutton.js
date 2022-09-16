@@ -16,11 +16,12 @@ function DataSetButton ({dataName, getPolePositions, getRaceData}) {
 
     return(
         <>
-        <div className="button-align-left">
+        <div className="dataset-button-container">
                 <AwesomeButton
+                    className="dataset-awesome-button"
                     onPress={getDataSet}
-                    type="secondary">
-                    <span className="data-buttons">
+                    type="anchor">
+                    <span className="generate-chart">
                         {dataName}
                     </span>                    
                 </AwesomeButton>
