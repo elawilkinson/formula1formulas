@@ -13,7 +13,7 @@ function CloseButton ({setShowRanking}) {
                     className="close-data-button" 
                     type="secondary" 
                     onPress={closeListings}>
-                    <span className="data-buttons">
+                    <span className="data-buttons-bl">
                     Close stats
                     </span>                   
                 </AwesomeButton>

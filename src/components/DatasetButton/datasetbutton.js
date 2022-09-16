@@ -12,8 +12,6 @@ function DataSetButton ({dataName, getPolePositions, getRaceData}) {
         }
     }
 
-
-
     return(
         <>
         <div className="dataset-button-container">
