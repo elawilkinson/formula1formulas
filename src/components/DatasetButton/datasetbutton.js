@@ -1,18 +1,33 @@
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 
-function DataSetButton ({getPolePositions}) {
+function DataSetButton ({dataName, dataSetFunction, getPolePositions, getRaceData}) {
+
+    function getDataSet () {
+        if(dataName.includes('Pole')){
+            getPolePositions()
+        }
+        else if(dataName.includes('Race')){
+            getRaceData()
+        }
+    }
+
+
 
     return(
+        <>
         <div className="button-align-left">
                 <AwesomeButton
-                    onPress={getPolePositions}
+                    onPress={getDataSet}
                     type="secondary">
                     <span className="data-buttons">
-                        Pole positions
+                        {dataName}
                     </span>                    
                 </AwesomeButton>
             </div>
+        </>
+
+
     )
 }
 
