@@ -1,7 +1,7 @@
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 
-function DataSetButton ({dataName, getPolePositions, getRaceData}) {
+function DataSetButton ({dataName, getPolePositions, getRaceData, getGridData}) {
 
     function getDataSet () {
         if(dataName.includes('Pole')){
@@ -9,6 +9,9 @@ function DataSetButton ({dataName, getPolePositions, getRaceData}) {
         }
         else if(dataName.includes('Race')){
             getRaceData()
+        }
+        else if(dataName.includes('grid')){
+            getGridData()
         }
     }
 

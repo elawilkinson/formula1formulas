@@ -30,6 +30,7 @@ Components:
 - Testing
 - Navbar or footer?
 - Separate out components
+- Clean up UI, so that it's clearer how to use the tabs
 
 
 ## Additional ideas

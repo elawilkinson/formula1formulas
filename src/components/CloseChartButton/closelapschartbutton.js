@@ -1,10 +1,11 @@
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 
-function CloseLapsChartButton ({setRaceData}) {
+function CloseLapsChartButton ({setRaceData, setGridData}) {
 
     function closeListings () {
         setRaceData(false);
+        setGridData(false);
     }
 
     return(
