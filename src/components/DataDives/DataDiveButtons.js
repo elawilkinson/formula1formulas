@@ -21,6 +21,7 @@ function DataDiveButtons(){
     const [constructorList, setConstructorList] = useState([]);
     const [gridStartList, setGridStartList] = useState([]);
     const [showBackButton, setShowBackButon] = useState(false);
+    
 
     let polePos = [];
     let constructors = [];
@@ -49,21 +50,24 @@ function DataDiveButtons(){
         setGridData(false);
     }
 
-    function getRaceData(){
-        window.scrollBy({ top: 600, left: 0, behavior: 'smooth' });
+    // There is a known bug in this function, whereby the smooth scroll doesn't reliably work
+    function getRaceData(){  
+        setPolePositions(false); 
+        window.scrollBy({ top: 1000, left: 0, behavior: 'smooth' });
+        console.log('racedata')     
         setShowBackButon(true);
         setRaceData(true);
-        setGridData(false);
-        setPolePositions(false);
+        setGridData(false);       
+        
     }
 
-    function getGridData(){
-        window.scrollBy({ top: 600, left: 0, behavior: 'smooth' });
+    function getGridData(){       
         setShowBackButon(true);
         setGridData(true);
         setGridStartList(fastestLaps)
         setPolePositions(false);
-        setRaceData(false);        
+        setRaceData(false);       
+        window.scrollBy({ top: 1500, left: 0, behavior: 'smooth' }); 
     }
 
     return(
@@ -79,16 +83,16 @@ function DataDiveButtons(){
                         polePositionNumbers={polePositionNumbers}
                         constructorList={constructorList}
                         />
-                    <CloseChartButton dataName={"Pole positions"} setPolePositions={setPolePositions} />
+                    <CloseChartButton dataName={"Pole positions by team"} setPolePositions={setPolePositions} />
                 </div>
             ) : <></>}
             
             {raceData ? (
                 <div className="chart-container">
-                    <FastestLapChart 
+                    <FastestLapChart id="fastest-lap-chart"
                         fastestLaps={fastestLaps}
                         />
-                    <CloseChartButton dataName={"Race data"} setRaceData={setRaceData}/>
+                    <CloseChartButton dataName={"Fastest Laptimes (2021)"} setRaceData={setRaceData}/>
                 </div>
             ) : <></>}
 
