@@ -7,7 +7,7 @@ function DataSetButton ({dataName, getPolePositions, getRaceData, getGridData}) 
         if(dataName.includes('Pole')){
             getPolePositions()
         }
-        else if(dataName.includes('Race')){
+        else if(dataName.includes('Fastest')){
             getRaceData()
         }
         else if(dataName.includes('grid')){

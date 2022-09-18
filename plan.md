@@ -21,7 +21,7 @@ Components:
 # Second sprint
 
 ## To-do list
-- Documentation
+- Documentation (READme)
 - Responsiveness
 - Deeper data dive section
     ¬ start with one chart
@@ -29,6 +29,16 @@ Components:
 - Testing
 - Separate out components
 - Clean up UI, so that it's clearer how to use the tabs
+- Ensure fetch requests are working (not just static version)
+
+
+-------------------------------------
+
+# Final sprint
+- Documentation (update READme, add comments where needed)
+- Testing
+
+------------
 
 
 ## Additional ideas

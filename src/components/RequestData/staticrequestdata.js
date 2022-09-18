@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
+import * as smoothscroll from "smoothscroll-polyfill";
 
 import StatsDisplay from "../StatsDisplay/statsdisplay.js";
 import { teams } from '../../libs/rankings2021.js';
@@ -14,6 +15,8 @@ function StaticRequestData () {
     const [teamListings, setTeamListings] = useState([]);
     const [driverListings, setDriverListings] = useState([]);
     const [showMoreData, setShowMoreData] = useState(false)
+
+    smoothscroll.polyfill();
 
   useEffect(() => {
       setTeamListings(teams)
@@ -35,7 +38,7 @@ function StaticRequestData () {
       setShowMoreData(false)
   }
 
-    function showOptions(){
+    function showDatasetOptions(){
       setShowMoreData(true)
       setShowRanking(true)
       setShowCons(false)
@@ -46,13 +49,13 @@ function StaticRequestData () {
         <>
             <div id="home-buttons-container"> 
               <a href="#stats-display-area">          
-                <AwesomeButton type="anchor" onPress={getConsStats}> <span className="data-buttons" > 2021 | Constructor rankings </span> </AwesomeButton>
+                <AwesomeButton type="anchor" onPress={getConsStats}> <span className="data-buttons"> 2021 | Constructor rankings </span> </AwesomeButton>
               </a>
               <a href="#stats-display-area">   
-                <AwesomeButton type="anchor" onPress={getDriverStats}> <span className="data-buttons" > 2021 | Driver rankings </span> </AwesomeButton>
+                <AwesomeButton type="anchor" onPress={getDriverStats}> <span className="data-buttons"> 2021 | Driver rankings </span> </AwesomeButton>
               </a>
               <a href="#stats-display-area">     
-                <AwesomeButton type="anchor" onPress={showOptions}> <span className="data-buttons" >Data dives</span> </AwesomeButton>
+                <AwesomeButton type="anchor" onPress={showDatasetOptions}> <span className="data-buttons"> Data dives </span> </AwesomeButton>
               </a> 
             </div>
             {showRanking ? (
