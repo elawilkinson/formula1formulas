@@ -1,10 +1,13 @@
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
+import * as smoothscroll from "smoothscroll-polyfill";
 
-function CloseButton ({setShowRanking}) {
+function BackToTopButton () {
+    smoothscroll.polyfill();
 
-    function closeListings () {
-        setShowRanking(false);
+
+    function collapseData(){        
+        window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     }
 
     return(
@@ -12,13 +15,13 @@ function CloseButton ({setShowRanking}) {
                 <AwesomeButton
                     className="close-data-button" 
                     type="secondary" 
-                    onPress={closeListings}>
+                    onPress={collapseData}>
                     <span className="data-buttons-bl">
-                    Close stats
+                    Back to top
                     </span>                   
                 </AwesomeButton>
             </div>
     )
 }
 
-export default CloseButton
+export default BackToTopButton

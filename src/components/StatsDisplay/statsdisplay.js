@@ -1,11 +1,15 @@
+import * as smoothscroll from "smoothscroll-polyfill";
+
 import "../App/App.css"
 
 import DriverCard from "../DriverCard/drivercard.js";
 import TeamCard from "../TeamCard/teamcard.js";
-import LogicButtons from "../logic/logicbuttons.js";
+import BackToTopButton from "../BackToTopButton/BackToTopButton.js";
+import DataDiveButtons from "../DataDives/DataDiveButtons.js";
 
 function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, showDriver, showMoreData}) {
-    
+    smoothscroll.polyfill();
+
     return(
         <>           
             {showCons ? (
@@ -16,9 +20,7 @@ function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, 
                     <TeamCard key={index} listing={listing} />
                     )
                 })}
-                    <a href="home-buttons-container">
-                        <button> X </button>
-                    </a>
+                    <BackToTopButton />
             </div>
             ) : <> </> }
             
@@ -30,18 +32,13 @@ function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, 
                     <DriverCard key={index} listing={listing} />
                     )
                 })}
-                <a href="home-buttons-container">
-                        <button> X </button>
-                    </a>
+                <BackToTopButton />
             </div>
             ) : <> </> }
 
             {showMoreData ? (
             <div>
-                <LogicButtons />
-                <a href="home-buttons-container">
-                        <button> X </button>
-                </a>
+                <DataDiveButtons />             
             </div>
             ) : <> </> }
         </>
