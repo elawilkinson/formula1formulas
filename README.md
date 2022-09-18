@@ -58,13 +58,14 @@ This runs an alternative version of the `Request Data` component, which uses loc
 
 ### Components
 The following components make use of third-party libraries:
-- `Chart` - this makes use of `chart.js`, which has React-specific documentation here (https://react-chartjs-2.js.org/examples).
-- `Buttons` - the buttons throughout the app use `AwesomeButton`, which has more information on the creator's GitHub (https://github.com/rcaferati/react-awesome-button). A key quirk of this component is that `onClick` is not a valid command; `onPress` must be used instead.
+- `charts` - these make use of `chart.js`, which has React-specific documentation here (https://react-chartjs-2.js.org/examples).
+- `buttons` - the buttons throughout the app use `AwesomeButton`, which has more information on the creator's GitHub (https://github.com/rcaferati/react-awesome-button). A key quirk of this component is that `onClick` is not a valid command; `onPress` must be used instead.
 
 -----
 
 ### Next iterations
 Here are further areas of development for possible future iterations of F1F:
+- Allowing the user to select a specific year for Constructors & Drivers results (i.e. not just 2021)
 - Comparing driver stats
 - Comparing team stats
 - Analysis of team performance by circuit, drivers and other factors
