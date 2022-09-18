@@ -4,15 +4,15 @@ import { teamhistory } from "../../libs/teamhistory.js";
 import { getFastestLaps } from './datawork.js';
 // import { getStartingGridData } from './datawork.js';
 
-import Chart from "../Chart/chart.js";
-import FastestLapChart from '../Chart/fastestlapchart.js';
-import StartingGridChart from '../Chart/startinggridchart.js';
+import PolePositionsChart from "../Charts/polepositionschart.js";
+import FastestLapChart from '../Charts/fastestlapchart.js';
+import StartingGridChart from '../Charts/startinggridchart.js';
 import DataSetButton from '../DatasetButton/datasetbutton.js';
-import CloseChartButton from '../CloseChartButton/closebutton.js';
-import CloseLapsChartButton from '../CloseChartButton/closelapschartbutton.js';
+import BackToTopButton from '../BackToTopButton/BackToTopButton.js';
+import CloseChartButton from '../CloseChartButton/closechartbutton.js';
 
 
-function LogicButtons(){  
+function DataDiveButtons(){  
     const [polePositions, setPolePositions] = useState(false);
     const [raceData, setRaceData] = useState(false);
     const [gridData, setGridData] = useState(false);
@@ -20,6 +20,8 @@ function LogicButtons(){
     const [polePositionNumbers, setPolePositionNumbers] = useState([]);
     const [constructorList, setConstructorList] = useState([]);
     const [gridStartList, setGridStartList] = useState([]);
+    const [showBackButton, setShowBackButon] = useState(false);
+
     let polePos = [];
     let constructors = [];
 
@@ -28,6 +30,7 @@ function LogicButtons(){
     }, [])
 
     function getPolePositions(){  
+        setShowBackButon(true);
         for(let i=0; i<teamhistory.length; i++){
             constructors.push(teamhistory[i].name)
             if(teamhistory[i].pole_positions === null){
@@ -37,20 +40,21 @@ function LogicButtons(){
                 polePos.push(teamhistory[i].pole_positions)
             }    
         }
-        setPolePositionNumbers(polePos)
-        setConstructorList(constructors)
-        setPolePositions(true)
-        setGridData(false)
+        setPolePositionNumbers(polePos);
+        setConstructorList(constructors);
+        setPolePositions(true);
+        setGridData(false);
     }
 
     function getRaceData(){
-        setRaceData(true)
-        setGridData(false)
-        setPolePositions(false)
+        setShowBackButon(true);
+        setRaceData(true);
+        setGridData(false);
+        setPolePositions(false);
     }
 
     function getGridData(){
-        // getStartingGridData();
+        setShowBackButon(true);
         setGridData(true);
         setGridStartList(fastestLaps)
         setPolePositions(false);
@@ -66,11 +70,11 @@ function LogicButtons(){
             </div>
             {polePositions ? (
                 <div className="chart-container">
-                    <Chart 
+                    <PolePositionsChart 
                         polePositionNumbers={polePositionNumbers}
                         constructorList={constructorList}
                         />
-                    <CloseChartButton setPolePositions={setPolePositions}/>
+                    <CloseChartButton dataName={"Pole positions"} setPolePositions={setPolePositions} />
                 </div>
             ) : <></>}
             
@@ -79,18 +83,22 @@ function LogicButtons(){
                     <FastestLapChart 
                         fastestLaps={fastestLaps}
                         />
-                    <CloseLapsChartButton setRaceData={setRaceData}/>
+                    <CloseChartButton dataName={"Race data"} setRaceData={setRaceData}/>
                 </div>
             ) : <></>}
 
             {gridData ? (
                 <div className="chart-container">
                     <StartingGridChart gridStartList={gridStartList}/>
-                    <CloseLapsChartButton setGridData={setGridData}/>
+                    <CloseChartButton dataName={"Starting grids"} setGridData={setGridData}/>
                 </div>
             ) : <></>}
+
+            {showBackButton ? (
+                <BackToTopButton />
+            ) : <> </> }
         </>
     )
 }
 
-export default LogicButtons
+export default DataDiveButtons;

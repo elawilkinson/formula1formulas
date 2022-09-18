@@ -33,7 +33,7 @@ ChartJS.register(
     },
   };
 
-function Chart ({polePositionNumbers, constructorList}) {
+function PolePositionsChart ({polePositionNumbers, constructorList}) {
   const labels = constructorList;
   const data = {
     labels,
@@ -56,4 +56,4 @@ function Chart ({polePositionNumbers, constructorList}) {
     )
 }
 
-export default Chart
+export default PolePositionsChart
