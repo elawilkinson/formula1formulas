@@ -1,5 +1,3 @@
-import * as smoothscroll from "smoothscroll-polyfill";
-
 import "../App/App.css"
 
 import DriverCard from "../DriverCard/drivercard.js";
@@ -8,8 +6,7 @@ import BackToTopButton from "../BackToTopButton/BackToTopButton.js";
 import DataDiveButtons from "../DataDives/DataDiveButtons.js";
 
 function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, showDriver, showMoreData}) {
-    smoothscroll.polyfill();
-
+    
     return(
         <>           
             {showCons ? (

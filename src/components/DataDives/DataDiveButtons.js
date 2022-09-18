@@ -1,8 +1,9 @@
+import * as smoothscroll from "smoothscroll-polyfill";
+
 import {useState, useEffect} from 'react'
 
 import { teamhistory } from "../../libs/teamhistory.js";
 import { getFastestLaps } from './datawork.js';
-// import { getStartingGridData } from './datawork.js';
 
 import PolePositionsChart from "../Charts/polepositionschart.js";
 import FastestLapChart from '../Charts/fastestlapchart.js';
@@ -11,8 +12,7 @@ import DataSetButton from '../DatasetButton/datasetbutton.js';
 import BackToTopButton from '../BackToTopButton/BackToTopButton.js';
 import CloseChartButton from '../CloseChartButton/closechartbutton.js';
 
-
-function DataDiveButtons(){  
+function DataDiveButtons(){ 
     const [polePositions, setPolePositions] = useState(false);
     const [raceData, setRaceData] = useState(false);
     const [gridData, setGridData] = useState(false);
@@ -25,11 +25,14 @@ function DataDiveButtons(){
     let polePos = [];
     let constructors = [];
 
+    smoothscroll.polyfill();
+
     useEffect ( () => {        
         setFastestLaps(getFastestLaps())
     }, [])
 
     function getPolePositions(){  
+        window.scrollBy({ top: 500, left: 0, behavior: 'smooth' });
         setShowBackButon(true);
         for(let i=0; i<teamhistory.length; i++){
             constructors.push(teamhistory[i].name)
@@ -47,6 +50,7 @@ function DataDiveButtons(){
     }
 
     function getRaceData(){
+        window.scrollBy({ top: 500, left: 0, behavior: 'smooth' });
         setShowBackButon(true);
         setRaceData(true);
         setGridData(false);
@@ -54,6 +58,7 @@ function DataDiveButtons(){
     }
 
     function getGridData(){
+        window.scrollBy({ top: 500, left: 0, behavior: 'smooth' });
         setShowBackButon(true);
         setGridData(true);
         setGridStartList(fastestLaps)
