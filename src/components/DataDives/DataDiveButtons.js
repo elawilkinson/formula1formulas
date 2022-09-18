@@ -32,7 +32,7 @@ function DataDiveButtons(){
     }, [])
 
     function getPolePositions(){  
-        window.scrollBy({ top: 500, left: 0, behavior: 'smooth' });
+        window.scrollBy({ top: 600, left: 0, behavior: 'smooth' });
         setShowBackButon(true);
         for(let i=0; i<teamhistory.length; i++){
             constructors.push(teamhistory[i].name)
@@ -50,7 +50,7 @@ function DataDiveButtons(){
     }
 
     function getRaceData(){
-        window.scrollBy({ top: 500, left: 0, behavior: 'smooth' });
+        window.scrollBy({ top: 600, left: 0, behavior: 'smooth' });
         setShowBackButon(true);
         setRaceData(true);
         setGridData(false);
@@ -58,7 +58,7 @@ function DataDiveButtons(){
     }
 
     function getGridData(){
-        window.scrollBy({ top: 500, left: 0, behavior: 'smooth' });
+        window.scrollBy({ top: 600, left: 0, behavior: 'smooth' });
         setShowBackButon(true);
         setGridData(true);
         setGridStartList(fastestLaps)
@@ -69,9 +69,9 @@ function DataDiveButtons(){
     return(
         <>
             <div className="data-dive-buttons">
-                <DataSetButton dataName={"Pole positions"} getPolePositions={getPolePositions} />
-                <DataSetButton dataName={"Race data"} getRaceData={getRaceData} />
-                <DataSetButton dataName={"Starting grids"} getGridData={getGridData} />
+                <DataSetButton dataName={"Pole positions by team"} getPolePositions={getPolePositions} />
+                <DataSetButton dataName={"Fastest Laptimes (2021)"} getRaceData={getRaceData} />
+                <DataSetButton dataName={"Starting grids by team (2021)"} getGridData={getGridData} />
             </div>
             {polePositions ? (
                 <div className="chart-container">

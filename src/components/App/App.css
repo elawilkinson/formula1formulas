@@ -101,6 +101,13 @@
     line-break:loose;
     color: white;
   }
+
+  .data-buttons-bl{
+    color: black;
+    font-size: 80%;
+    line-height: 80%;
+    line-break:loose;
+  }
   
 }
 
@@ -164,13 +171,16 @@
 }
 
 .data-dive-buttons{
+  border: 5px solid white;
   display: flex;
   justify-content: flex-end;
+  width: 60vw;
 }
 
 .dataset-button-container{
   width: 18vw;
   padding: 2%;
+
 }
 
 .dataset-awesome-button{
