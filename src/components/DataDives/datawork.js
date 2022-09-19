@@ -1,9 +1,10 @@
 import { racesOnly } from "../../libs/racesonly2021.js";
 
-let lapTimes = []; 
-let grandPrixNames = [];
-let grandPrixIds = [];
-let timesOnly = [];
+  let lapTimes = []; 
+  let grandPrixNames = [];
+  let grandPrixIds = [];
+  let timesOnly = [];
+
 
 
 export function getFastestLaps () { 

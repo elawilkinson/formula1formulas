@@ -12,7 +12,7 @@ import DataSetButton from '../DatasetButton/datasetbutton.js';
 import BackToTopButton from '../BackToTopButton/BackToTopButton.js';
 import CloseChartButton from '../CloseChartButton/closechartbutton.js';
 
-function DataDiveButtons(){ 
+function DataDiveButtons({raceListings}){ 
     const [polePositions, setPolePositions] = useState(false);
     const [raceData, setRaceData] = useState(false);
     const [gridData, setGridData] = useState(false);
@@ -53,8 +53,7 @@ function DataDiveButtons(){
     // There is a known bug in this function, whereby the smooth scroll doesn't reliably work
     function getRaceData(){  
         setPolePositions(false); 
-        window.scrollBy({ top: 1000, left: 0, behavior: 'smooth' });
-        console.log('racedata')     
+        window.scrollBy({ top: 1000, left: 0, behavior: 'smooth' }); 
         setShowBackButon(true);
         setRaceData(true);
         setGridData(false);       
@@ -69,6 +68,8 @@ function DataDiveButtons(){
         setRaceData(false);       
         window.scrollBy({ top: 1500, left: 0, behavior: 'smooth' }); 
     }
+
+    console.log(raceListings[0])
 
     return(
         <>
