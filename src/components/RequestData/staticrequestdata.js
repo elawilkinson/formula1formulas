@@ -58,7 +58,7 @@ function StaticRequestData () {
                 <AwesomeButton type="anchor" onPress={showDatasetOptions}> <span className="data-buttons"> Data dives </span> </AwesomeButton>
               </a> 
             </div>
-            {showRanking ? (
+            {showRanking ? (   
               <div id="stats-display-area">
                 <StatsDisplay 
                   teamListings={teamListings} 

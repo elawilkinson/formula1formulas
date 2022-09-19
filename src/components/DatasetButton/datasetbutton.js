@@ -4,6 +4,7 @@ import "react-awesome-button/dist/styles.css";
 function DataSetButton ({dataName, getPolePositions, getRaceData, getGridData}) {
 
     function getDataSet () {
+        window.scrollBy({ top: 1000, left: 0, behavior: 'smooth' });
         if(dataName.includes('Pole')){
             getPolePositions()
         }
