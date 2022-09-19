@@ -54,14 +54,15 @@ In order to call the `libs` rather than the API, these are the steps:
 
 1) Navigate to `App.js`.
 2) Comment out line 5 (`import RequestData...`)
-3) Comment out line 14 (`</RequestData>`)
-4) Ensure that line 13 is *not* commented out (`<StaticRequestData>` should be readable)
+3) Ensure that line 6 is *not* commented out (`import StaticRequestData...` should be readable)
+4) Comment out line 14 (`</RequestData>`)
+5) Ensure that line 13 is *not* commented out (`<StaticRequestData>` should be readable)
 (This runs an alternative version of the `Request Data` component, which uses locally-available libraries rather than calling the API.)
-5) Navigate to `statsdisplay.js`.
-6) Comment out line 6 (`import DataDiveButtons...`)
-7) Ensure that line 7 is *not* commented out (`import StaticDataDive....` should be readable)
-8) Comment out line 39 (`<DataDiveButons>`)
-9) Ensure that line 40 is *not* commented out (`<StaticDataDiveButtons> should be readable`)
+6) Navigate to `statsdisplay.js`.
+7) Comment out line 6 (`import DataDiveButtons...`)
+8) Ensure that line 7 is *not* commented out (`import StaticDataDive....` should be readable)
+9) Comment out line 39 (`<DataDiveButons>`)
+10) Ensure that line 40 is *not* commented out (`<StaticDataDiveButtons> should be readable`)
 (This ensures that the buttons rendering datasets are using the `libs` data rather than fetching from the API.)
 
 -----
