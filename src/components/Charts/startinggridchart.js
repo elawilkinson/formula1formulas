@@ -48,7 +48,6 @@ ChartJS.register(
       otherTeams.push(element.other)
     })
 
-    console.log(merc)
     const data = {
       labels,
       datasets: [
