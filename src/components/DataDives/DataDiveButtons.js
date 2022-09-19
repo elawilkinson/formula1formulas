@@ -10,14 +10,17 @@ import BackToTopButton from '../BackToTopButton/BackToTopButton.js';
 import CloseChartButton from '../CloseChartButton/closechartbutton.js';
 
 function DataDiveButtons({raceListings, teamHistory}){ 
+    // These states determine which data is rendered in the StatsDisplay area
     const [polePositions, setPolePositions] = useState(false);
     const [raceData, setRaceData] = useState(false);
     const [gridData, setGridData] = useState(false);
+    const [showBackButton, setShowBackButon] = useState(false);
+
+    // These states are used to store data taken from the API and transferred to the Charts
     const [fastestLaps, setFastestLaps] = useState([]);
     const [polePositionNumbers, setPolePositionNumbers] = useState([]);
     const [constructorList, setConstructorList] = useState([]);
-    const [gridStartList, setGridStartList] = useState([]);
-    const [showBackButton, setShowBackButon] = useState(false);    
+    const [gridStartList, setGridStartList] = useState([]);    
 
     let polePos = [];
     let constructors = [];
@@ -94,6 +97,7 @@ function DataDiveButtons({raceListings, teamHistory}){
                 <DataSetButton dataName={"Fastest Laptimes (2021)"} getRaceData={getRaceData} />
                 <DataSetButton dataName={"Starting grids by team (2021)"} getGridData={getGridData} />
             </div>
+            
             {polePositions ? (
                 <div className="chart-container">
                     <PolePositionsChart 

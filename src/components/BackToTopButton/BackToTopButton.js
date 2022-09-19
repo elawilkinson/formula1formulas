@@ -3,8 +3,8 @@ import "react-awesome-button/dist/styles.css";
 import * as smoothscroll from "smoothscroll-polyfill";
 
 function BackToTopButton () {
+    // This function is required by the third-party library
     smoothscroll.polyfill();
-
 
     function collapseData(){        
         window.scroll({ top: 0, left: 0, behavior: 'smooth' });

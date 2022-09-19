@@ -1,28 +1,28 @@
-// describe('Constructor rankings test', () => {
-//   it('Loads a list of F1 teams when the Constructor button is pressed', () => {
-//     cy.visit('https://formula1formulas.netlify.app')
+describe('Constructor rankings test', () => {
+  it('Loads a list of F1 teams when the Constructor button is pressed', () => {
+    cy.visit('https://formula1formulas.netlify.app')
 
-//     cy.contains('Constructor').click()
-//   })
+    cy.contains('Constructor').click()
+  })
 
-//   it('Fetches and returns the correct list', () => {
-//     cy.contains('Mercedes')
-//     cy.contains('Haas')
-//     })
-//   })
+  it('Fetches and returns the correct list', () => {
+    cy.contains('Mercedes')
+    cy.contains('Haas')
+    })
+  })
 
-  // describe('Driver rankings test', () => {
-  //   it('Loads a list of F1 teams when the Driver button is pressed', () => {
-  //     cy.visit('https://formula1formulas.netlify.app')
+  describe('Driver rankings test', () => {
+    it('Loads a list of F1 teams when the Driver button is pressed', () => {
+      cy.visit('https://formula1formulas.netlify.app')
   
-  //     cy.contains('Driver').click()
-  //   })
+      cy.contains('Driver').click()
+    })
   
-  //   it('Fetches and returns the correct list', () => {
-  //     cy.contains('Hamilton')
-  //     cy.contains('Nikita')
-  //     })
-  //   })
+    it('Fetches and returns the correct list', () => {
+      cy.contains('Hamilton')
+      cy.contains('Nikita')
+      })
+    })
   
     describe('Testing the deeper data dive charts', () => {
       it('Loads a list of F1 teams when the Driver button is pressed', () => {
