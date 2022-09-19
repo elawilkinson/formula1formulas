@@ -21,20 +21,19 @@ ChartJS.register(
 
   export const options = {
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: false, // This determines responsivenses
     plugins: {
       legend: {
         position: 'top'
       },
       title: {
         display: true,
-        text: 'Fastest Laps 2021',
+        text: 'Fastest Laps 2021', 
       },
     },
   };
 
 function FastestLapChart ({fastestLaps}) {
-  console.log(fastestLaps)
   const labels = fastestLaps[1];
   const data = {
     labels,
@@ -50,7 +49,7 @@ function FastestLapChart ({fastestLaps}) {
     return(
         <div className='data-chart'>
             <Bar className='data-graphics'
-              height={100}
+              height={100} 
               options={options} 
               data={data} />
         </div>

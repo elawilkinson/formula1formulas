@@ -75,7 +75,9 @@ function RequestData () {
 
     return(
         <>
-            <div id="home-buttons-container">            
+            <div id="home-buttons-container">   
+
+            {/* These buttons have anchor tags to allow them to integrate with smoothscroll        */}
               <a href="#stats-display-area">          
                   <AwesomeButton type="anchor" onPress={getConsStats}> <span className="data-buttons"> 2021 | Constructor rankings </span> </AwesomeButton>
                 </a>
@@ -85,6 +87,7 @@ function RequestData () {
                 <a href="#stats-display-area">     
                   <AwesomeButton type="anchor" onPress={showDatasetOptions}> <span className="data-buttons"> Data dives </span> </AwesomeButton>
                 </a> 
+                
             </div>
             {showRanking ? (
               <div id="stats-display-area">

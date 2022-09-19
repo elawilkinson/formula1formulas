@@ -3,6 +3,7 @@ import "react-awesome-button/dist/styles.css";
 import * as smoothscroll from "smoothscroll-polyfill";
 
 function CloseChartButton ({setPolePositions, setGridData, setRaceData, dataName }) {
+    // This function is required by the third-party library
     smoothscroll.polyfill();
 
     function closeListings () {

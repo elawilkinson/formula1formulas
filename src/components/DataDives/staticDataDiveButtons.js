@@ -12,7 +12,7 @@ import DataSetButton from '../DatasetButton/datasetbutton.js';
 import BackToTopButton from '../BackToTopButton/BackToTopButton.js';
 import CloseChartButton from '../CloseChartButton/closechartbutton.js';
 
-function DataDiveButtons(){ 
+function StaticDataDiveButtons(){ 
     const [polePositions, setPolePositions] = useState(false);
     const [raceData, setRaceData] = useState(false);
     const [gridData, setGridData] = useState(false);
@@ -109,4 +109,4 @@ function DataDiveButtons(){
     )
 }
 
-export default DataDiveButtons;
+export default StaticDataDiveButtons;

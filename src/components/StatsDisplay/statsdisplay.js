@@ -4,6 +4,7 @@ import DriverCard from "../DriverCard/drivercard.js";
 import TeamCard from "../TeamCard/teamcard.js";
 import BackToTopButton from "../BackToTopButton/BackToTopButton.js";
 import DataDiveButtons from "../DataDives/DataDiveButtons.js";
+// import StaticDataDiveButtons from "../DataDives/staticDataDiveButtons.js"
 
 function StatsDisplay ({teamListings, driverListings, teamHistory, setShowRanking, showCons, showDriver, showMoreData, raceListings}) {
     
@@ -35,7 +36,8 @@ function StatsDisplay ({teamListings, driverListings, teamHistory, setShowRankin
 
             {showMoreData ? (
             <div>
-                <DataDiveButtons raceListings={raceListings} teamHistory={teamHistory} />             
+            <DataDiveButtons raceListings={raceListings} teamHistory={teamHistory} />             
+                {/* <StaticDataDiveButtons raceListings={raceListings} teamHistory={teamHistory} />              */}
             </div>
             ) : <> </> }
         </>

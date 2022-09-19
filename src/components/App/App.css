@@ -12,7 +12,7 @@
   color: rgb(0, 0, 79)
 }
 
-
+/* LANDING INFO COMPONENT */
 .landing-text-container{
   margin-top: 10%;
   width: 100vw;
@@ -70,6 +70,7 @@
   }
 }
 
+/* DATA REQUEST COMPONENT */
 #home-buttons-container{
   display: flex;
   justify-content: space-evenly;
@@ -156,6 +157,7 @@
 
 }
 
+/* DATA DIVES & CHARTS */
 .button-align-left{
   display: flex;
   justify-content: left;
