@@ -30,7 +30,7 @@ It uses `Cypress` for E2E testing.
 -----
 
 ### Quickstart
-1) To build from the existing repo, clone from `https://github.com/elawilkinson/whointheworld/`.
+1) To build from the existing repo, clone from `https://github.com/elawilkinson/formula1formulas/`.
  -- Please note that currently there is currenlty only a `main, production branch`, without feature branches or a development branch. As such, any changes pushed will be continuously deployed to production -- 
 
 2) Once the repo is cloned, use `npm i` to install dependencies and dev dependencies. 
