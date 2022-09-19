@@ -34,6 +34,7 @@ ChartJS.register(
   };
 
 function FastestLapChart ({fastestLaps}) {
+  console.log(fastestLaps)
   const labels = fastestLaps[1];
   const data = {
     labels,

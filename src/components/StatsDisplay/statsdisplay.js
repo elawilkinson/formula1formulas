@@ -5,7 +5,7 @@ import TeamCard from "../TeamCard/teamcard.js";
 import BackToTopButton from "../BackToTopButton/BackToTopButton.js";
 import DataDiveButtons from "../DataDives/DataDiveButtons.js";
 
-function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, showDriver, showMoreData, raceListings}) {
+function StatsDisplay ({teamListings, driverListings, teamHistory, setShowRanking, showCons, showDriver, showMoreData, raceListings}) {
     
     return(
         <>           
@@ -35,7 +35,7 @@ function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, 
 
             {showMoreData ? (
             <div>
-                <DataDiveButtons raceListings={raceListings} />             
+                <DataDiveButtons raceListings={raceListings} teamHistory={teamHistory} />             
             </div>
             ) : <> </> }
         </>

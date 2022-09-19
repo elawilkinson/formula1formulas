@@ -10,10 +10,12 @@ function RequestData () {
     const [showRanking, setShowRanking] = useState(false);
     const [showCons, setShowCons] = useState(false);
     const [showDriver, setShowDriver] = useState(false);
-    const [showMoreData, setShowMoreData] = useState(false)
+    const [showMoreData, setShowMoreData] = useState(false);
+    const [teamHistory, setTeamHistory] = useState([])
     const [teamListings, setTeamListings] = useState([]);
     const [driverListings, setDriverListings] = useState([]);
     const [raceListings, setRaceListings] = useState([]);
+    const teamHistoryUrl = 'https://api-formula-1.p.rapidapi.com/teams';
     const constructorsUrl = 'https://api-formula-1.p.rapidapi.com/rankings/teams?season=2021';
     const driversUrl = 'https://api-formula-1.p.rapidapi.com/rankings/drivers?season=2021';
     const raceUrl = 'https://api-formula-1.p.rapidapi.com/races?season=2021'
@@ -42,6 +44,11 @@ function RequestData () {
     fetch(raceUrl, getListings)
       .then(res => res.json())
       .then(json => setRaceListings(json.response))
+      .catch(err => console.error('error:' + err));
+
+    fetch(teamHistoryUrl, getListings)
+      .then(res => res.json())
+      .then(json => setTeamHistory(json.response))
       .catch(err => console.error('error:' + err));
   }, [])
 
@@ -85,6 +92,7 @@ function RequestData () {
                   teamListings={teamListings} 
                   driverListings={driverListings}
                   raceListings={raceListings}
+                  teamHistory={teamHistory}
                   showCons={showCons}
                   showDriver={showDriver} 
                   showMoreData={showMoreData}

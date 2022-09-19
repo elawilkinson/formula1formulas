@@ -2,6 +2,9 @@ import * as smoothscroll from "smoothscroll-polyfill";
 
 import {useState, useEffect} from 'react'
 
+import { teamhistory } from "../../libs/teamhistory.js";
+import { getFastestLaps } from './datawork.js';
+
 import PolePositionsChart from "../Charts/polepositionschart.js";
 import FastestLapChart from '../Charts/fastestlapchart.js';
 import StartingGridChart from '../Charts/startinggridchart.js';
@@ -9,7 +12,7 @@ import DataSetButton from '../DatasetButton/datasetbutton.js';
 import BackToTopButton from '../BackToTopButton/BackToTopButton.js';
 import CloseChartButton from '../CloseChartButton/closechartbutton.js';
 
-function DataDiveButtons({raceListings, teamHistory}){ 
+function DataDiveButtons(){ 
     const [polePositions, setPolePositions] = useState(false);
     const [raceData, setRaceData] = useState(false);
     const [gridData, setGridData] = useState(false);
@@ -21,43 +24,23 @@ function DataDiveButtons({raceListings, teamHistory}){
 
     let polePos = [];
     let constructors = [];
-    let lapTimes = [];
-    let grandPrixNames = [];
 
     smoothscroll.polyfill();
 
     useEffect ( () => {
-        sortingRaceData()
+        setFastestLaps(getFastestLaps())
     }, [])
-
-    function sortingRaceData () {
-        for(let i=0; i<raceListings.length; i++){
-            let x = raceListings[i].fastest_lap.time;        
-            if(x){
-                let y = Number(`${x[2]}${x[3]}`)
-                let seconds = Number(60 + y)
-                let miliseconds = Number(`${x[5]}${x[6]}${x[7]}`)
-                let laptime = Number(`${seconds}.${miliseconds}`)
-                lapTimes.push({
-                    'Race' : raceListings[i].competition.name,
-                    'Lap time' : laptime,
-                    'Driver': raceListings[i].fastest_lap.driver.id
-                })
-                grandPrixNames.push(raceListings[i].competition.name)
-            }
-        }
-    }
 
     function getPolePositions(){  
         window.scrollBy({ top: 600, left: 0, behavior: 'smooth' });
         setShowBackButon(true);
-        for(let i=0; i<teamHistory.length; i++){
-            constructors.push(teamHistory[i].name)
-            if(teamHistory[i].pole_positions === null){
+        for(let i=0; i<teamhistory.length; i++){
+            constructors.push(teamhistory[i].name)
+            if(teamhistory[i].pole_positions === null){
                 polePos.push(0)
             }
             else{
-                polePos.push(teamHistory[i].pole_positions)
+                polePos.push(teamhistory[i].pole_positions)
             }    
         }
         setPolePositionNumbers(polePos);
@@ -68,7 +51,6 @@ function DataDiveButtons({raceListings, teamHistory}){
 
     // There is a known bug in this function, whereby the smooth scroll doesn't reliably work
     function getRaceData(){  
-        setFastestLaps([lapTimes, grandPrixNames])
         setPolePositions(false); 
         window.scrollBy({ top: 1000, left: 0, behavior: 'smooth' }); 
         setShowBackButon(true);
@@ -85,6 +67,7 @@ function DataDiveButtons({raceListings, teamHistory}){
         setRaceData(false);       
         window.scrollBy({ top: 1500, left: 0, behavior: 'smooth' }); 
     }
+
 
     return(
         <>
