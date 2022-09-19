@@ -13,8 +13,10 @@ function RequestData () {
     const [showMoreData, setShowMoreData] = useState(false)
     const [teamListings, setTeamListings] = useState([]);
     const [driverListings, setDriverListings] = useState([]);
+    const [raceListings, setRaceListings] = useState([]);
     const constructorsUrl = 'https://api-formula-1.p.rapidapi.com/rankings/teams?season=2021';
     const driversUrl = 'https://api-formula-1.p.rapidapi.com/rankings/drivers?season=2021';
+    const raceUrl = 'https://api-formula-1.p.rapidapi.com/races?season=2021'
     
     smoothscroll.polyfill();
 
@@ -36,7 +38,11 @@ function RequestData () {
       .then(res => res.json())
       .then(json => setDriverListings(json.response))
       .catch(err => console.error('error:' + err));
-  
+
+    fetch(raceUrl, getListings)
+      .then(res => res.json())
+      .then(json => setRaceListings(json.response))
+      .catch(err => console.error('error:' + err));
   }, [])
 
     function getConsStats(){
@@ -78,6 +84,7 @@ function RequestData () {
                 <StatsDisplay 
                   teamListings={teamListings} 
                   driverListings={driverListings}
+                  raceListings={raceListings}
                   showCons={showCons}
                   showDriver={showDriver} 
                   showMoreData={showMoreData}
