@@ -1,5 +1,5 @@
 # Formula 1 Formulas
-`Formula 1 Formulas` is a Formula 1 fan website collating and analysing race data.
+`Formula 1 Formulas` is a Formula 1 fan site collating and analysing race data.
 
 -----
 -----
