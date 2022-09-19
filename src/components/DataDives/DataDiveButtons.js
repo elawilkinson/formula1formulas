@@ -23,6 +23,7 @@ function DataDiveButtons({raceListings, teamHistory}){
     let constructors = [];
     let lapTimes = [];
     let grandPrixNames = [];
+    let timesOnly =[];
 
     smoothscroll.polyfill();
 
@@ -44,6 +45,7 @@ function DataDiveButtons({raceListings, teamHistory}){
                     'Driver': raceListings[i].fastest_lap.driver.id
                 })
                 grandPrixNames.push(raceListings[i].competition.name)
+                timesOnly.push(laptime)
             }
         }
     }
@@ -68,13 +70,12 @@ function DataDiveButtons({raceListings, teamHistory}){
 
     // There is a known bug in this function, whereby the smooth scroll doesn't reliably work
     function getRaceData(){  
-        setFastestLaps([lapTimes, grandPrixNames])
+        setFastestLaps([lapTimes, grandPrixNames, timesOnly])
         setPolePositions(false); 
         window.scrollBy({ top: 1000, left: 0, behavior: 'smooth' }); 
         setShowBackButon(true);
         setRaceData(true);
-        setGridData(false);       
-        
+        setGridData(false);        
     }
 
     function getGridData(){       
