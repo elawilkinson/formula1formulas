@@ -7,32 +7,17 @@ import BackToTopButton from "../BackToTopButton/BackToTopButton.js";
 import DataDiveButtons from "../DataDives/DataDiveButtons.js";
 // import StaticDataDiveButtons from "../DataDives/staticDataDiveButtons.js"
 
-function StatsDisplay ({teamListings, driverListings, setRaceListings, setShowRanking, showCons, showDriver, showMoreData, showDatasetOptions, raceListings}) {
-    const [teamHistory, setTeamHistory] = useState([]);
-    // const raceUrl = 'https://api-formula-1.p.rapidapi.com/races?season=2021'
-    const teamHistoryUrl = 'https://api-formula-1.p.rapidapi.com/teams';
-
-    const getListings = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
-          'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
-        }
-    }
-
-   async function getRaceAndTeamHistory () {
-        await fetch(teamHistoryUrl, getListings)
-            .then(res => res.json())
-            .then(json => setTeamHistory(json.response))
-            .catch(err => console.error('error:' + err));
-        
-        // await fetch(raceUrl, getListings)
-        //     .then(res => res.json())
-        //     .then(json => setRaceListings(json.response))
-        //     .catch(err => console.error('error:' + err));
-    }
-
-    console.log(teamHistory)
+function StatsDisplay ({teamListings, 
+        driverListings, 
+        teamHistory,
+        setRaceListings, 
+        setShowRanking, 
+        showCons, 
+        showDriver, 
+        showMoreData, 
+        showDatasetOptions, 
+        raceListings}) {
+ 
 
     return(
         <>           
@@ -62,7 +47,7 @@ function StatsDisplay ({teamListings, driverListings, setRaceListings, setShowRa
 
             {showMoreData ? (
             <div>
-            <DataDiveButtons onPress={getRaceAndTeamHistory} raceListings={raceListings} teamHistory={teamHistory} />             
+            <DataDiveButtons raceListings={raceListings} teamHistory={teamHistory} />             
                 {/* <StaticDataDiveButtons raceListings={raceListings} teamHistory={teamHistory} />              */}
             </div>
             ) : <> </> }

@@ -15,20 +15,21 @@ function RequestData () {
     const [teamListings, setTeamListings] = useState([]);
     const [driverListings, setDriverListings] = useState([]);
     const [raceListings, setRaceListings] = useState([]);
-    // const teamHistoryUrl = 'https://api-formula-1.p.rapidapi.com/teams';
+    const teamHistoryUrl = 'https://api-formula-1.p.rapidapi.com/teams';
     const constructorsUrl = 'https://api-formula-1.p.rapidapi.com/rankings/teams?season=2021';
     const driversUrl = 'https://api-formula-1.p.rapidapi.com/rankings/drivers?season=2021';
     const raceUrl = 'https://api-formula-1.p.rapidapi.com/races?season=2021'
     
+    
     smoothscroll.polyfill();
 
-  const getListings = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
-      'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
-    }    
-  };
+    const getListings = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+        'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
+      }    
+    };
 
   useEffect(() => {
     fetch(constructorsUrl, getListings)
@@ -45,12 +46,19 @@ function RequestData () {
       .then(res => res.json())
       .then(json => setRaceListings(json.response))
       .catch(err => console.error('error:' + err));
-
-    // fetch(teamHistoryUrl, getListings)
-    //   .then(res => res.json())
-    //   .then(json => setTeamHistory(json.response))
-    //   .catch(err => console.error('error:' + err));
   }, [])
+
+  async function getTeamHistory () {
+    await fetch(teamHistoryUrl, getListings)
+        .then(res => res.json())
+        .then(json => setTeamHistory(json.response))
+        .catch(err => console.error('error:' + err));
+  }
+
+  const handleClick = async () => {
+    console.log('data')
+    await getTeamHistory()
+  }
 
     function getConsStats(){
         setShowRanking(true)
@@ -67,6 +75,7 @@ function RequestData () {
   }
 
     function showDatasetOptions(){
+      handleClick()
       setShowMoreData(true)
       setShowRanking(true)
       setShowCons(false)

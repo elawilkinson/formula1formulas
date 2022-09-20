@@ -31,10 +31,6 @@ function DataDiveButtons({raceListings, teamHistory}){
     smoothscroll.polyfill();
 
     useEffect ( () => {
-        sortingRaceData()
-    }, [])
-
-    function sortingRaceData () {
         for(let i=0; i<raceListings.length; i++){
             let x = raceListings[i].fastest_lap.time;        
             if(x){
@@ -51,7 +47,7 @@ function DataDiveButtons({raceListings, teamHistory}){
                 timesOnly.push(laptime)
             }
         }
-    }
+    }, [grandPrixNames, lapTimes, raceListings, timesOnly])
 
     function getPolePositions(){  
         window.scrollBy({ top: 600, left: 0, behavior: 'smooth' });
@@ -73,6 +69,7 @@ function DataDiveButtons({raceListings, teamHistory}){
 
     // There is a known bug in this function, whereby the smooth scroll doesn't reliably work
     function getRaceData(){  
+        console.log(`lap times: ${lapTimes}, grandPrixNames: ${grandPrixNames}, timesOnly: ${timesOnly}`)
         setFastestLaps([lapTimes, grandPrixNames, timesOnly])
         setPolePositions(false); 
         window.scrollBy({ top: 1000, left: 0, behavior: 'smooth' }); 
