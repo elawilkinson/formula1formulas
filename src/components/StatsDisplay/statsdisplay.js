@@ -1,3 +1,4 @@
+import {useEffect, useState} from "react"
 import "../App/App.css"
 
 import DriverCard from "../DriverCard/drivercard.js";
@@ -6,8 +7,25 @@ import BackToTopButton from "../BackToTopButton/BackToTopButton.js";
 import DataDiveButtons from "../DataDives/DataDiveButtons.js";
 // import StaticDataDiveButtons from "../DataDives/staticDataDiveButtons.js"
 
-function StatsDisplay ({teamListings, driverListings, teamHistory, setShowRanking, showCons, showDriver, showMoreData, raceListings}) {
-    
+function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, showDriver, showMoreData, setShowMoreData, raceListings}) {
+    const [teamHistory, setTeamHistory] = useState([])
+    const teamHistoryUrl = 'https://api-formula-1.p.rapidapi.com/teams';
+
+    const getListings = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+          'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
+        }
+    }
+
+    useEffect(() => {
+        fetch(teamHistoryUrl, getListings)
+            .then(res => res.json())
+            .then(json => setTeamHistory(json.response))
+            .catch(err => console.error('error:' + err));
+    }, [setShowMoreData])
+
     return(
         <>           
             {showCons ? (
