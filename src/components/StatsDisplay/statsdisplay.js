@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react"
+import {useState} from "react"
 import "../App/App.css"
 
 import DriverCard from "../DriverCard/drivercard.js";
@@ -7,8 +7,9 @@ import BackToTopButton from "../BackToTopButton/BackToTopButton.js";
 import DataDiveButtons from "../DataDives/DataDiveButtons.js";
 // import StaticDataDiveButtons from "../DataDives/staticDataDiveButtons.js"
 
-function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, showDriver, showMoreData, setShowMoreData, raceListings}) {
-    const [teamHistory, setTeamHistory] = useState([])
+function StatsDisplay ({teamListings, driverListings, setRaceListings, setShowRanking, showCons, showDriver, showMoreData, showDatasetOptions, raceListings}) {
+    const [teamHistory, setTeamHistory] = useState([]);
+    // const raceUrl = 'https://api-formula-1.p.rapidapi.com/races?season=2021'
     const teamHistoryUrl = 'https://api-formula-1.p.rapidapi.com/teams';
 
     const getListings = {
@@ -19,12 +20,19 @@ function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, 
         }
     }
 
-    useEffect(() => {
-        fetch(teamHistoryUrl, getListings)
+   async function getRaceAndTeamHistory () {
+        await fetch(teamHistoryUrl, getListings)
             .then(res => res.json())
             .then(json => setTeamHistory(json.response))
             .catch(err => console.error('error:' + err));
-    }, [setShowMoreData])
+        
+        // await fetch(raceUrl, getListings)
+        //     .then(res => res.json())
+        //     .then(json => setRaceListings(json.response))
+        //     .catch(err => console.error('error:' + err));
+    }
+
+    console.log(teamHistory)
 
     return(
         <>           
@@ -54,7 +62,7 @@ function StatsDisplay ({teamListings, driverListings, setShowRanking, showCons, 
 
             {showMoreData ? (
             <div>
-            <DataDiveButtons raceListings={raceListings} teamHistory={teamHistory} />             
+            <DataDiveButtons onPress={getRaceAndTeamHistory} raceListings={raceListings} teamHistory={teamHistory} />             
                 {/* <StaticDataDiveButtons raceListings={raceListings} teamHistory={teamHistory} />              */}
             </div>
             ) : <> </> }

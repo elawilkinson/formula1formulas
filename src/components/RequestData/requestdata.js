@@ -95,11 +95,12 @@ function RequestData () {
                   teamListings={teamListings} 
                   driverListings={driverListings}
                   raceListings={raceListings}
+                  setRaceListings={setRaceListings}
                   teamHistory={teamHistory}
                   showCons={showCons}
                   showDriver={showDriver} 
                   showMoreData={showMoreData}
-                  setShowMoreData={setShowMoreData}
+                  showDatasetOptions={showDatasetOptions}
                   setShowRanking={setShowRanking}/>
               </div>
             ) : <></>}
