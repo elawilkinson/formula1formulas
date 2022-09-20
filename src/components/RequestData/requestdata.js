@@ -48,6 +48,7 @@ function RequestData () {
       .catch(err => console.error('error:' + err));
   }, [])
 
+  // This fetch request is outside of the useEffect block, as running them all together results in a 429 error response (too many requests to the server in 1 minute)
   async function getTeamHistory () {
     await fetch(teamHistoryUrl, getListings)
         .then(res => res.json())
@@ -104,13 +105,11 @@ function RequestData () {
                   teamListings={teamListings} 
                   driverListings={driverListings}
                   raceListings={raceListings}
-                  setRaceListings={setRaceListings}
                   teamHistory={teamHistory}
                   showCons={showCons}
                   showDriver={showDriver} 
                   showMoreData={showMoreData}
-                  showDatasetOptions={showDatasetOptions}
-                  setShowRanking={setShowRanking}/>
+                  />
               </div>
             ) : <></>}
         </>

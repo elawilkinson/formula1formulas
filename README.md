@@ -126,6 +126,12 @@ Currently, the tests follow user journeys - they check that components render co
 
 ### Next iterations
 Here are further areas of development for possible future iterations of F1F:
+
+`Technical`
+- Expanding test coverage
+- Simplifying components where possible
+- Expanding error handling - e.g. verifying user URL inputs
+
 `Features`
 - Allowing the user to select a specific year for Constructors & Drivers results (i.e. not just 2021)
 - Comparing driver stats
@@ -133,9 +139,7 @@ Here are further areas of development for possible future iterations of F1F:
 - Analysis of team performance by circuit, drivers and other factors
 - Adding a navbar/footer to create a more cohesive brand/UX
 
-`Technical`
-- Expanding test coverage
-- Simplifying components where possible
+
 
 -----
 

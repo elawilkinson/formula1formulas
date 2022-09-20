@@ -9,14 +9,12 @@ import DataDiveButtons from "../DataDives/DataDiveButtons.js";
 
 function StatsDisplay ({teamListings, 
         driverListings, 
+        raceListings,
         teamHistory,
-        setRaceListings, 
-        setShowRanking, 
         showCons, 
         showDriver, 
         showMoreData, 
-        showDatasetOptions, 
-        raceListings}) {
+        }) {
  
 
     return(

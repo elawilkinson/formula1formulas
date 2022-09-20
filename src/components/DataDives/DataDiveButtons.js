@@ -67,9 +67,7 @@ function DataDiveButtons({raceListings, teamHistory}){
         setGridData(false);
     }
 
-    // There is a known bug in this function, whereby the smooth scroll doesn't reliably work
     function getRaceData(){  
-        console.log(`lap times: ${lapTimes}, grandPrixNames: ${grandPrixNames}, timesOnly: ${timesOnly}`)
         setFastestLaps([lapTimes, grandPrixNames, timesOnly])
         setPolePositions(false); 
         window.scrollBy({ top: 1000, left: 0, behavior: 'smooth' }); 
