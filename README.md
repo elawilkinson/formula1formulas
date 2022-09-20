@@ -30,7 +30,7 @@ It uses `Cypress` for E2E testing.
 -----
 
 ### A note to begin
-The API Keys were exposed through .env error earlier in the process, so while I am aware that there is a historical issue with that data appearing in the Git logs, the API Key has since been updated and the .gitignore issue rectifed.
+Early in the build process, the API Keys were exposed through .env error. So, while I am aware that there is a historical issue with that data appearing in the Git logs, the API Key has since been updated and the .gitignore issue rectifed - and as such, the historical commits containing that data have not been filtered (so as to not lose project history unnecessarily).
 
 ### Quickstart
 1) To build from the existing repo, clone from `https://github.com/elawilkinson/formula1formulas/`.
