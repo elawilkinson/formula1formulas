@@ -1,11 +1,11 @@
 import {useState} from "react"
 import "../App/App.css"
 
-import DriverCard from "../DriverCard/drivercard.js";
-import TeamCard from "../TeamCard/teamcard.js";
+import DriverCard from "../DriverCard/DriverCard.js";
+import TeamCard from "../TeamCard/TeamCard.js";
 import BackToTopButton from "../BackToTopButton/BackToTopButton.js";
-import DataDiveButtons from "../DataDives/DataDiveButtons.js";
-// import StaticDataDiveButtons from "../DataDives/staticDataDiveButtons.js"
+// import DataDiveButtons from "../DataDives/DataDiveButtons.js";
+import StaticDataDiveButtons from "../DataDives/StaticDataDiveButtons.js"
 
 function StatsDisplay ({teamListings, 
         driverListings, 
@@ -45,8 +45,8 @@ function StatsDisplay ({teamListings,
 
             {showMoreData ? (
             <div>
-            <DataDiveButtons raceListings={raceListings} teamHistory={teamHistory} />             
-                {/* <StaticDataDiveButtons raceListings={raceListings} teamHistory={teamHistory} />              */}
+            {/* <DataDiveButtons raceListings={raceListings} teamHistory={teamHistory} />              */}
+                <StaticDataDiveButtons raceListings={raceListings} teamHistory={teamHistory} />             
             </div>
             ) : <> </> }
         </>
