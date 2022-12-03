@@ -1,5 +1,4 @@
 import React from "react";
-import {useState} from "react"
 import "../App/App.css"
 
 import DriverCard from "../DriverCard/DriverCard.js";
