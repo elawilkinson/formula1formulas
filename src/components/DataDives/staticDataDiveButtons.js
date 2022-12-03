@@ -1,3 +1,4 @@
+import React from "react";
 import * as smoothscroll from "smoothscroll-polyfill";
 
 import {useState, useEffect} from 'react'

@@ -1,3 +1,5 @@
+import React from "react";
+
 function LandingInfo (){
     return(
         <section className="landing-text-container">
