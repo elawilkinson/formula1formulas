@@ -3,12 +3,12 @@ import * as smoothscroll from "smoothscroll-polyfill";
 
 import {useState, useEffect} from 'react'
 
-import PolePositionsChart from "../Charts/polepositionschart.js";
-import FastestLapChart from '../Charts/fastestlapchart.js';
-import StartingGridChart from '../Charts/startinggridchart.js';
-import DataSetButton from '../DatasetButton/datasetbutton.js';
+import PolePositionsChart from "../Charts/PolePositionsChart.js"
+import FastestLapChart from "../Charts/FastestLapChart.js"
+import StartingGridChart from "../Charts/StartingGridChart.js"
+import DataSetButton from '../DatasetButton/DatasetButton.js';
 import BackToTopButton from '../BackToTopButton/BackToTopButton.js';
-import CloseChartButton from '../CloseChartButton/closechartbutton.js';
+import CloseChartButton from "../CloseChartButton/CloseChartButton.js";
 
 function DataDiveButtons({raceListings, teamHistory}){ 
     // These states determine which data is rendered in the StatsDisplay area

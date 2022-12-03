@@ -3,7 +3,7 @@ import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import * as smoothscroll from "smoothscroll-polyfill";
 
-import StatsDisplay from "../StatsDisplay/StatsDisplay.js";
+import StatsDisplay from '../StatsDisplay/StatsDisplay.js';
 
 function RequestData () {
 

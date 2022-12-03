@@ -1,6 +1,6 @@
 import React from "react";
-function DriverCard ({listing}) {
 
+function DriverCard ({listing}) {
     return(
         <>
             <p>#{listing.position}: {listing.driver.name}</p>

@@ -9,4 +9,4 @@ function LandingInfo (){
     )
 }
 
-export default LandingInfo
+export default LandingInfo;
