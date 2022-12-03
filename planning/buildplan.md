@@ -45,3 +45,7 @@ Components:
 - Allow viewing of constructor & driver data by year
 - Animation on front page
 - Navbar or footer?
+
+
+## NB
+would need to add CI and REACT_APP_API_KEY to Netlify config if it called the API again. 
